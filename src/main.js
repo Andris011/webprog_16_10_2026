@@ -29,31 +29,31 @@ let show = (sportolok) => {
   let headRow = document.createElement("tr")
 
   let hid = document.createElement("th")
-  hid.innerHTML = "ID"
+  hid.textContent = "ID"
   headRow.appendChild(hid)
 
   let hname = document.createElement("th")
-  hname.innerHTML = "Név"
+  hname.textContent = "Név"
   headRow.appendChild(hname)
 
   let hsport = document.createElement("th")
-  hsport.innerHTML = "Sport"
+  hsport.textContent = "Sport"
   headRow.appendChild(hsport)
 
   let hdateOfBirth = document.createElement("th")
-  hdateOfBirth.innerHTML = "Születési idő"
+  hdateOfBirth.textContent = "Születési idő"
   headRow.appendChild(hdateOfBirth)
 
   let hcategory = document.createElement("th")
-  hcategory.innerHTML = "Kategória"
+  hcategory.textContent = "Kategória"
   headRow.appendChild(hcategory)
 
   let hteam = document.createElement("th")
-  hteam.innerHTML = "Csapat"
+  hteam.textContent = "Csapat"
   headRow.appendChild(hteam)
 
   let hdelete = document.createElement("th")
-  hdelete.innerHTML = "Törlés"
+  hdelete.textContent = "Törlés"
   headRow.appendChild(hdelete)
 
   thead.appendChild(headRow)
@@ -65,24 +65,24 @@ let show = (sportolok) => {
     let row = document.createElement("tr");
 
     let sid = document.createElement("td")
-    sid.innerHTML = element.id
+    sid.textContent = element.id
     row.appendChild(sid) 
 
     let sname = document.createElement("td")
-    sname.innerHTML = element.name
+    sname.textContent = element.name
     row.appendChild(sname)
 
     let ssport = document.createElement("td")
-    ssport.innerHTML = element.sport
+    ssport.textContent = element.sport
     row.appendChild(ssport)
 
 
     let sdateOfBirth = document.createElement("td")
-    sdateOfBirth.innerHTML = element.dateOfBirth.format('YYYY/MM/DD') + ` (${dayjs().diff(element.dateOfBirth, "year")} éves)`
+    sdateOfBirth.textContent = `${element.dateOfBirth.format('YYYY/MM/DD')} (${dayjs().diff(element.dateOfBirth, "year")} éves)`
     row.appendChild(sdateOfBirth)
 
     let scategory = document.createElement("td")
-    scategory.innerHTML = element.category
+    scategory.textContent = element.category
     row.appendChild(scategory)
 
     let steam = document.createElement("td")
@@ -97,7 +97,7 @@ let show = (sportolok) => {
 
     let sdelete = document.createElement("td")
     let deleteButton = document.createElement("button")
-    deleteButton.innerHTML = "Törlés"
+    deleteButton.textContent = "Törlés"
     deleteButton.className = "btn btn-danger"
     deleteButton.addEventListener("click", () => {
       sportolok.splice(sportolok.indexOf(element), 1)
@@ -109,7 +109,7 @@ let show = (sportolok) => {
     tbody.appendChild(row)
     
 
-    document.getElementById("current_date").innerHTML = dayjs().format("YYYY. MM. DD.")
+    document.getElementById("current_date").textContent = dayjs().format("YYYY. MM. DD.")
   });
 
 stable.appendChild(tbody)
@@ -132,7 +132,7 @@ let getSportoloFromForm = () => {
   let category = document.getElementById("category").value
   let team = document.getElementById("team").checked
 
-  if (!sid || !name || !sport || dateOfBirth == NaN || !category) {
+  if (!sid || !name || !sport || !dateOfBirth || !category) {
     alert("Kérlek töltsd ki az összes mezőt!")
     return null
   }
@@ -155,11 +155,12 @@ let orderList = () => {
 let init = () => {
   show(sportolok)
 
-  document.addEventListener("submit", (event) => {
+  document.getElementById("sform").addEventListener("submit", (event) => {
     event.preventDefault();
     getSportoloFromForm();
   });
-  document.getElementById("order-button").addEventListener("click", orderList)
+
+  document.getElementById("order").addEventListener("change", orderList)
 }
 
 document.addEventListener("DOMContentLoaded", () => {

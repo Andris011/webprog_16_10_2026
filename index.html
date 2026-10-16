@@ -7,11 +7,10 @@
     <title>febert_andras</title>
   </head>
   <body>
-    
     <div id="app" class="container">
       <div class="row">
         <div class="col-md-12">
-          <form>
+          <form id="sform">
             <label for="id" class="form-label">ID:</label><br>
             <input type="text" id="sid" name="id" required><br><br>
 
@@ -36,17 +35,13 @@
           <br><br>
           
           <div class="mb-3" style="max-width: 120px;">
-            <label for="order" class="form-label">Formázás:</label>
             <select id="order" class="form-select">
+              <option value="" selected disabled>Rendezés</option>
               <option value="asc">ABC ↑</option>
               <option value="desc">ABC ↓</option>
             </select>
           </div>
-          <button id="order-button" class="btn btn-warning">Rendezés</button>
-
           <br><br>
-
-
           <div id="sportolokTable"></div>
         </div>
       </div>
