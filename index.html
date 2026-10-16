@@ -12,23 +12,40 @@
       <div class="row">
         <div class="col-md-12">
           <form>
-            <label for="name">Név:</label>
+            <label for="id" class="form-label">ID:</label><br>
+            <input type="text" id="sid" name="id" required><br><br>
+
+            <label for="name" class="form-label">Név:</label><br>
             <input type="text" id="name" name="name" required><br><br>
             
-            <label for="sport">Sport:</label>
+            <label for="sport" class="form-label">Sport:</label><br>
             <input type="text" id="sport" name="sport" required><br><br>
             
-            <label for="dateOfBirth">Születési év:</label>
-            <input type="text" id="dateOfBirth" name="dateOfBirth" required><br><br>
+            <label for="dateOfBirth" class="form-label">Születési idő:</label><br>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" required><br><br>
             
-            <label for="category">Kategória:</label>
+            <label for="category" class="form-label">Kategória:</label><br>
             <input type="text" id="category" name="category" required><br><br>
             
-            <label for="team">Csapattag:</label>
+            <label for="team" class="form-label">Csapattag:</label><br>
             <input type="checkbox" id="team" name="team"><br><br>
 
-            <button type="submit">Felvétel</button>
+            <button type="submit" class="btn btn-success">Felvétel</button>
           </form>
+
+          <br><br>
+          
+          <div class="mb-3" style="max-width: 120px;">
+            <label for="order" class="form-label">Formázás:</label>
+            <select id="order" class="form-select">
+              <option value="asc">ABC ↑</option>
+              <option value="desc">ABC ↓</option>
+            </select>
+          </div>
+          <button id="order-button" class="btn btn-warning">Rendezés</button>
+
+          <br><br>
+
 
           <div id="sportolokTable"></div>
         </div>
@@ -37,4 +54,7 @@
 
     <script type="module" src="/src/main.js"></script>
   </body>
+  <footer>
+    <div id="current_date"></div>
+  </footer>
 </html>
