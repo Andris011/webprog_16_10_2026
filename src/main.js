@@ -55,6 +55,7 @@ let show = (sportolok) => {
   let hdelete = document.createElement("th")
   hdelete.textContent = "Törlés"
   headRow.appendChild(hdelete)
+  headRow.className = "text-center"
 
   thead.appendChild(headRow)
   stable.appendChild(thead)
@@ -105,6 +106,7 @@ let show = (sportolok) => {
     })
     sdelete.appendChild(deleteButton)
     row.appendChild(sdelete)
+    row.className = "text-center"
 
     tbody.appendChild(row)
     
