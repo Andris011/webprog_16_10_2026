@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>febert_andras</title>
+  </head>
+  <body>
+    
+    <div id="app" class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <form>
+            <label for="name">Név:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="sport">Sport:</label>
+            <input type="text" id="sport" name="sport" required><br><br>
+            
+            <label for="dateOfBirth">Születési év:</label>
+            <input type="text" id="dateOfBirth" name="dateOfBirth" required><br><br>
+            
+            <label for="category">Kategória:</label>
+            <input type="text" id="category" name="category" required><br><br>
+            
+            <label for="team">Csapattag:</label>
+            <input type="checkbox" id="team" name="team"><br><br>
+
+            <button type="submit">Felvétel</button>
+          </form>
+
+          <div id="sportolokTable"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
